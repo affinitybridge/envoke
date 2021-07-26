@@ -1,0 +1,4 @@
+envoke.admin:
+  route_name: envoke.admin
+  title: 'Envoke'
+  parent: system.admin_config_services

@@ -1,0 +1,9 @@
+services:
+  envoke.load_settings.read_only:
+    class: \Drupal\Core\Config\ImmutableConfig
+    factory: config.factory:get
+    arguments: ['envoke.settings']
+
+  envoke.envoke_service:
+    class: Drupal\envoke\EnvokeService
+    arguments: ['@envoke.load_settings.read_only']

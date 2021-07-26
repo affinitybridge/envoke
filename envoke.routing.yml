@@ -1,0 +1,7 @@
+envoke.admin:
+  path: 'admin/config/services/envoke'
+  defaults:
+    _form: '\Drupal\envoke\Form\EnvokeAdminSettingsForm'
+    _title: 'Envoke Settings'
+  requirements:
+    _permission: 'administer envoke'

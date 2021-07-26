@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * The Envoke module.
+ *
+ *   Interacts with the Envoke APIs
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function envoke_theme($existing, $type, $theme, $path) {
+  return [
+    'envoke_mail' => [
+      'variables' => [
+        'body' => NULL,
+        'base_url' => '',
+      ],
+    ],
+  ];
+}

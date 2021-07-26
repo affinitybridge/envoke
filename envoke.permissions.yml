@@ -1,0 +1,4 @@
+administer envoke:
+  title: Administer Envoke
+  description: Perform administration tasks for the Envoke email service.
+  restrict access: true
