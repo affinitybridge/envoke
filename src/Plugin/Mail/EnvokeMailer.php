@@ -112,19 +112,7 @@ class EnvokeMailer implements MailInterface {
       $envoke_message['reply_email'] = $this->config->get('envoke_email_reply');
     }
 
-    $envoke_request_data = [
-      "SendEmails" => [
-        [
-          "EmailDataArray" => [
-            [
-              "email" => [$envoke_message]
-            ]
-          ]
-        ]
-      ]
-    ];
-
-    return $this->envokeService->sendEmail($message['to'], $envoke_request_data);
+    return $this->envokeService->sendEmail($message['to'], $envoke_message);
   }
 
 }

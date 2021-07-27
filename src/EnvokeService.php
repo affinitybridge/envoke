@@ -25,7 +25,7 @@ class EnvokeService {
    * @param string $to receiver email address
    * @return bool
    */
-  public function sendEmail($to, $data)
+  public function sendEmail($to, $message)
   {
     $username = $this->config->get('envoke_api_id');
     $password = $this->config->get('envoke_api_key');
@@ -34,6 +34,18 @@ class EnvokeService {
     if (empty($username) || empty($password)) {
       return FALSE;
     }
+
+    $data = [
+      "SendEmails" => [
+        [
+          "EmailDataArray" => [
+            [
+              "email" => [$message]
+            ]
+          ]
+        ]
+      ]
+    ];
 
     if ($this->insertContactIfNotExist($to) == TRUE) {
       try {
