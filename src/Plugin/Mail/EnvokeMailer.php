@@ -29,7 +29,7 @@ class EnvokeMailer implements MailInterface {
   public function __construct() {
     $this->config = \Drupal::service('config.factory')->get('envoke.settings');
     $this->httpClient = \Drupal::httpClient();
-    $this->envokeService =  \Drupal::service('envoke.envoke_service');
+    $this->envokeService = \Drupal::service('envoke.envoke_service');
   }
 
   /**
@@ -93,7 +93,6 @@ class EnvokeMailer implements MailInterface {
     if (!empty($this->config->get('envoke_campaign'))) {
       $envoke_message["campaign_name"] = $this->config->get('envoke_campaign');
     } else {
-      // get the site name
       $envoke_message["campaign_name"] = \Drupal::config('system.site')->get('name');
     }
 
@@ -106,7 +105,6 @@ class EnvokeMailer implements MailInterface {
     if (!empty($this->config->get('envoke_name_from'))) {
       $envoke_message['from_name'] = $this->config->get('envoke_name_from');
     }
-    
     if (isset($message["reply-to"])) {
       $envoke_message['reply_email'] = $message["reply-to"];
     }
@@ -128,4 +126,5 @@ class EnvokeMailer implements MailInterface {
 
     return $this->envokeService->sendEmail($message['to'], $envoke_request_data);
   }
+
 }

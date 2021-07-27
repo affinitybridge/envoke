@@ -1,10 +1,7 @@
 <?php
-/**
- * @file
- * Envoke Service.
- */
 
 namespace Drupal\envoke;
+
 use GuzzleHttp\Exception\RequestException;
 
 /**
@@ -22,9 +19,10 @@ class EnvokeService {
   }
 
   /**
-   * Return boolean to indicate sending email is successful
-   * @param array $data
-   * @param string $to
+   * Return boolean to indicate sending email is successful.
+   *
+   * @param array $data array of data fields required by Envoke API
+   * @param string $to receiver email address
    * @return bool
    */
   public function sendEmail($to, $data)
