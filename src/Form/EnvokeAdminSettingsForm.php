@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements an Mandrill Admin Settings form.
+ * Implements an Envoke Admin Settings form.
  */
 class EnvokeAdminSettingsForm extends ConfigFormBase {
 
