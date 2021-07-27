@@ -21,4 +21,4 @@ This is the code base for the drupal mail module using Envoke
 - Envoke service provides `sendEmail` and `insertContactIfNotExist` that supports sending email through Envoke APIs and update Envoke contacts
 
 ## Composer.json
-- Currently the type is `drupal-custom-module` that will place the installed module in the `/module/custom/` directory
+- Currently the type is `drupal-module` that will place the installed module in the `/module/contrib/` directory
