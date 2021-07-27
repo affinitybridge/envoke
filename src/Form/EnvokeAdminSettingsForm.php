@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements an Mandrill Admin Settings form.
  */
-class EnvokeMailerAdminSettingsForm extends ConfigFormBase {
+class EnvokeAdminSettingsForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}.
@@ -38,27 +38,33 @@ class EnvokeMailerAdminSettingsForm extends ConfigFormBase {
     $form['envoke_api_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Envoke API ID'),
-      '#description' => $this->t('Provide Envoke API ID'),
+      '#description' => $this->t('Envoke API ID'),
       "#default_value" => $config->get('envoke_api_id'),
     ];
     $form['envoke_api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Envoke API KEY'),
-      '#description' => $this->t('Provide Envoke API KEY'),
+      '#description' => $this->t('Envoke API KEY'),
       "#default_value" => $config->get('envoke_api_key'),
     ];
     // subaccount for newsletter
     $form['envoke_subscription_api_id'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Envoke API ID for Subscription'),
-      '#description' => $this->t('Provide Envoke API ID'),
+      '#description' => $this->t('Envoke API ID'),
       "#default_value" => $config->get('envoke_subscription_api_id'),
     ];
     $form['envoke_subscription_api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Envoke API KEY for Subscription'),
-      '#description' => $this->t('Provide Envoke API KEY'),
+      '#description' => $this->t('Envoke API KEY'),
       "#default_value" => $config->get('envoke_subscription_api_key'),
+    ];
+    $form['envoke_campaign'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Campaign name'),
+      '#description' => $this->t('Campaign name. Default will use the site name'),
+      "#default_value" => $config->get('envoke_campaign'),
     ];
     $form['envoke_email_from'] = [
       '#type' => 'textfield',
@@ -77,12 +83,6 @@ class EnvokeMailerAdminSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Reply to email'),
       '#description' => $this->t('The email address to reply. Default will use default account from email'),
       "#default_value" => $config->get('envoke_email_reply'),
-    ];
-    $form['envoke_campaign'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Campaign name'),
-      '#description' => $this->t('Campaign name. Default will use the site name'),
-      "#default_value" => $config->get('envoke_campaign'),
     ];
 
     return parent::buildForm($form, $form_state);;

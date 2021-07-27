@@ -96,11 +96,19 @@ class EnvokeMailer implements MailInterface {
       // get the site name
       $envoke_message["campaign_name"] = \Drupal::config('system.site')->get('name');
     }
+
+    if (isset($message["from"])) {
+      $envoke_message['from_email'] = $message["from"];
+    }
     if (!empty($this->config->get('envoke_email_from'))) {
       $envoke_message['from_email'] = $this->config->get('envoke_email_from');
     }
     if (!empty($this->config->get('envoke_name_from'))) {
       $envoke_message['from_name'] = $this->config->get('envoke_name_from');
+    }
+    
+    if (isset($message["reply-to"])) {
+      $envoke_message['reply_email'] = $message["reply-to"];
     }
     if (!empty($this->config->get('envoke_email_reply'))) {
       $envoke_message['reply_email'] = $this->config->get('envoke_email_reply');
