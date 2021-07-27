@@ -1,0 +1,16 @@
+{
+    "name": "affinitybridge/envoke",
+    "description": "Envoke mailer module",
+    "type": "drupal-custom-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tu Dat Nguyen",
+            "email": "tudat@affinitybridge.com"
+        }
+    ],
+    "homepage": "https://git.affinitybridge.com/affinitybridge/envoke",
+    "support": {
+        "source": "https://git.affinitybridge.com/affinitybridge/envoke"
+    }
+}
