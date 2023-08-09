@@ -96,6 +96,7 @@ class EnvokeMailer implements MailInterface {
       $envoke_message["campaign_name"] = \Drupal::config('system.site')->get('name');
     }
 
+    // Ensure manually set email fields override the ones set in Envoke config form
     if (isset($message["from"])) {
       $envoke_message['from_email'] = $message["from"];
     } else if (!empty($this->config->get('envoke_email_from'))) {
@@ -110,6 +111,7 @@ class EnvokeMailer implements MailInterface {
       $envoke_message['reply_email'] = $this->config->get('envoke_email_reply');
     }
 
+    // Instance where multiple comma seperated emails are passed to Envoke in a single string
     if(strpos($message['to'], ',') !== false) {
       $allToEmails = explode(',', $message['to']);
 
