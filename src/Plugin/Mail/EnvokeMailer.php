@@ -118,9 +118,11 @@ class EnvokeMailer implements MailInterface {
           return FALSE;
         }
       }
+      return TRUE;
     }
 
-    return TRUE;
+    return $this->envokeService->sendEmail($message['to'], $envoke_message);
+    
   }
 
 }
