@@ -99,7 +99,8 @@ class EnvokeMailer implements MailInterface {
     // Ensure manually set email fields override the ones set in Envoke config form
     if (isset($message["from"])) {
       $envoke_message['from_email'] = $message["from"];
-    } else if (!empty($this->config->get('envoke_email_from'))) {
+    }
+    if (!empty($this->config->get('envoke_email_from'))) {
       $envoke_message['from_email'] = $this->config->get('envoke_email_from');
     }
     if (!empty($this->config->get('envoke_name_from'))) {
