@@ -98,8 +98,7 @@ class EnvokeMailer implements MailInterface {
 
     if (isset($message["from"])) {
       $envoke_message['from_email'] = $message["from"];
-    }
-    if (!empty($this->config->get('envoke_email_from'))) {
+    } else if (!empty($this->config->get('envoke_email_from'))) {
       $envoke_message['from_email'] = $this->config->get('envoke_email_from');
     }
     if (!empty($this->config->get('envoke_name_from'))) {
@@ -107,12 +106,21 @@ class EnvokeMailer implements MailInterface {
     }
     if (isset($message["reply-to"])) {
       $envoke_message['reply_email'] = $message["reply-to"];
-    }
-    if (!empty($this->config->get('envoke_email_reply'))) {
+    }else if (!empty($this->config->get('envoke_email_reply'))) {
       $envoke_message['reply_email'] = $this->config->get('envoke_email_reply');
     }
 
-    return $this->envokeService->sendEmail($message['to'], $envoke_message);
+    if(strpos($message['to'], ',') !== false) {
+      $allToEmails = explode(',', $message['to']);
+
+      foreach($allToEmails as $toEmail){
+        if(!($this->envokeService->sendEmail($message['to'], $envoke_message))){
+          return FALSE;
+        }
+      }
+    }
+
+    return TRUE;
   }
 
 }
