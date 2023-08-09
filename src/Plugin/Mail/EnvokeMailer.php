@@ -117,6 +117,7 @@ class EnvokeMailer implements MailInterface {
       $allToEmails = explode(',', $message['to']);
 
       foreach($allToEmails as $toEmail){
+        $envoke_message['to_email'] = $toEmail;
         if(!($this->envokeService->sendEmail($toEmail, $envoke_message))){
           return FALSE;
         }
