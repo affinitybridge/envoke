@@ -121,6 +121,7 @@ class EnvokeMailer implements MailInterface {
         if(!($this->envokeService->sendEmail($toEmail, $envoke_message))){
           return FALSE;
         }
+        sleep(1);
       }
       return TRUE;
     }
