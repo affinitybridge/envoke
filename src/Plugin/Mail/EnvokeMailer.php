@@ -76,6 +76,9 @@ class EnvokeMailer implements MailInterface {
       $message['body'] = str_replace("\n", '<br>', $message['body']);
     }
 
+    // If ampersand signs get formatted, convert them back
+    $message['body'] = str_replace('&amp;', '&', $message['body']);
+
     $build = [
       '#theme' => 'envoke_mail',
       '#body'  => $message['body'],
