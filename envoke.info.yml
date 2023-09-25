@@ -1,5 +1,5 @@
 name: Envoke
 description: 'Mailing System with Envoke'
-package: Affinity Bridge
+package: Mail
 type: module
 core_version_requirement: ^9 || ^10
